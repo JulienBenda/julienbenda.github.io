@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <div>
+        <div style="height: 100vh;">
+            <!-- <div class="cb"></div> -->
             <!-- <logo /> -->
             <div class="logo">
                 <div class="triangle2"></div>
@@ -32,21 +33,140 @@
                     GitHub
                 </a>
             </div>
+            <div id="scrl">
+                <a href="#" @click="clickSmoothScroll()"><span></span>Scroll</a>
+            </div>
+            <div id="introduction">
+                <h1 class="title" style="margin-top: 10%; color: snow;">このページについて</h1>
+                <p class="subtitle" style="margin-top: 10%; color: snow;">
+                    このページはGitHub PagesとNuxt.jsを用いて作られています。
+                </p>
+                <p class="subtitle" style="margin-top: 10%; color: snow;">
+                    このように公開する方法を紹介する記事を上げていきたいと思います。
+                </p>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+// import Logo from '~/components/Logo.vue'
+import Vue from 'vue';
+import smoothScroll from 'vue-smoothscroll';
+
+Vue.use(smoothScroll);
 
 export default {
-    components: {
-        Logo
+    methods: {
+        clickSmoothScroll () {
+            event.preventDefault();
+            this.$SmoothScroll(
+                document.querySelector('#introduction'),
+                400,
+                null,
+                null,
+                'y'
+            )
+        }
     }
+    // components: {
+    //     Logo
+    // }
 }
 </script>
 
 <style>
+/* 縦長 */
+@media screen and (orientation: portrait) {
+    :root{
+        --font-size: 3.5vw;
+        --logo-top: -50px;
+    }
+}
+/* 横長 */
+@media screen and (orientation: landscape) {
+    :root{
+        --font-size: 1.5vw;
+        --logo-scale: 0;
+    }
+}
+#introduction {
+    position: absolute;
+    left: 0;
+    top: 100vh;
+    background: coral;
+    height: 100vh;
+    width: 100vw;
+}
+/* .cb { */
+/*     border-left: 1px solid black; */
+/*     width: 0; */
+/*     top: 0; */
+/*     left: 50%; */
+/*     height: 100vh; */
+/*     position: fixed; */
+/*     z-index: 362187; */
+/* } */
+#scrl {
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    width: 100px;
+    margin: 0 0 0 -50px;
+    text-align: center;
+    z-index: 10;
+}
+
+#scrl a {
+    padding: 15px;
+    color: #35495e;
+    text-decoration: none;
+}
+/* #scrl a:active, #scrl a:hover{ */
+/*     background: rgba(0,0,0,0); */
+/* } */
+#scrl a span {
+    position: absolute;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    margin-top: -70px;
+    border-left: 1px solid #35495e;
+    border-bottom: 1px solid #35495e;
+    -webkit-transform: rotateZ(-45deg);
+    transform: rotateZ(-45deg);
+    -webkit-animation: sdb 1.5s infinite;
+    animation: sdb 1.5s infinite;
+    box-sizing: border-box;
+}
+@-webkit-keyframes sdb {
+    0% {
+        -webkit-transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
+        opacity: 0;
+    }
+}
+@keyframes sdb {
+    0% {
+        transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
+        opacity: 0;
+    }
+}
+
 .logo {
     animation: turn 2s linear forwards 1s;     
     transform: scale(0.5, 0.5) rotateX(180deg);
@@ -54,7 +174,7 @@ export default {
     height: 346px;
     width: 500px;
     margin: 10px auto;
-    /* margin-bottom: 150px; */
+    margin-top: var(--logo-top);
 }
 
 .triangle1, .triangle2, .triangle3, .triangle4 {
@@ -109,25 +229,10 @@ export default {
     left: 140px;
   }
 }
-/* 縦長 */
-@media screen and (orientation: portrait) {
-    :root{
-        --font-size: 3.5vw;
-        --landscape: none;
-        --portrait: block;
-    }
-}
-/* 横長 */
-@media screen and (orientation: landscape) {
-    :root{
-        --font-size: 1.5vw;
-        --landscape: block;
-        --portrait: none;
-    }
-}
 
 .container {
     margin: 0 auto;
+    padding: 0;
     min-height: 100vh;
     /* width: 100vw; */
     overflow-x: hidden;
