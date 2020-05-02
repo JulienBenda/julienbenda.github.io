@@ -12,12 +12,12 @@
     "build:master": "DEPLOY_ENV=MASTER nuxt build",
     "generate:master": "DEPLOY_ENV=MASTER nuxt generate",
     "deploy": "push-dir --dir=dist --branch=master --verbose --cleanup"
-
   },
   "dependencies": {
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.2"
+    "cross-env": "^7.0.2",
+    "push-dir": "^0.4.1"
   }
 }
