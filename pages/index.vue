@@ -40,10 +40,10 @@
                 <a href="#" @click="clickSmoothScroll()"><span></span>Scroll</a>
             </div>
             <div id="introduction">
-                <p class="subtitle" style="color: #35495e;">
+                <p class="subtitle" style="color: black;">
                     このページはGitHub PagesとNuxt.jsを用いて作られています。
                 </p>
-                <p class="subtitle" style="margin-top: 10%; color: #35495e;">
+                <p class="subtitle" style="margin-top: 10%; color: black;">
                     このように公開する方法を紹介する記事を上げていきたいと思います。
                 </p>
             </div>
