@@ -1,0 +1,21 @@
+{
+  "name": "julienbenda.github.io",
+  "version": "1.0.0",
+  "description": "My legendary Nuxt.js project",
+  "author": "JulienBenda",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "build:master": "DEPLOY_ENV=MASTER nuxt build",
+    "generate:master": "DEPLOY_ENV=MASTER nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2"
+  }
+}
