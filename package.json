@@ -10,7 +10,9 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "build:master": "DEPLOY_ENV=MASTER nuxt build",
-    "generate:master": "DEPLOY_ENV=MASTER nuxt generate"
+    "generate:master": "DEPLOY_ENV=MASTER nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=master --verbose --cleanup"
+
   },
   "dependencies": {
     "nuxt": "^2.0.0"
