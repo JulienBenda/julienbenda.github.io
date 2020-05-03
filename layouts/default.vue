@@ -114,7 +114,7 @@ main {
 }
 
 main h2, main h1{
-    margin-top: calc(var(--font-size)*2);
+    /* margin-top: calc(var(--font-size)*2); */
     margin-bottom: calc(var(--font-size)*1);
     border-bottom: solid 5px;
     text-align: center;
@@ -136,20 +136,20 @@ main h3, main p, main li{
 #blogs {
     position: absolute;
     left: 0;
-    top: 200vh;
-    height: 100vh;
-    width: 100vw;
-    padding: 5vh 50px 0px 50px;
-}
-#introduction {
-    position: absolute;
-    left: 0;
     top: 100vh;
-    background: #41B883;
-    height: 100vh;
+    /* height: 100vh; */
     width: 100vw;
-    padding: 25vh 50px 50px 50px;
+    padding: 5vh 50px 150px 50px;
 }
+/* #introduction { */
+/*     position: absolute; */
+/*     left: 0; */
+/*     top: 100vh; */
+/*     background: #41B883; */
+/*     height: 100vh; */
+/*     width: 100vw; */
+/*     padding: 25vh 50px 50px 50px; */
+/* } */
 /* .cb { */
 /*     border-left: 1px solid black; */
 /*     width: 0; */
@@ -327,6 +327,7 @@ main h3, main p, main li{
 .container {
     margin: 0 auto;
     padding: 0;
+    padding-bottom: 10vh;
     min-height: 100vh;
     /* width: 100vw; */
     overflow-x: hidden;
@@ -360,10 +361,10 @@ main h3, main p, main li{
 }
 
 img {
-    margin: 50px auto;
+    /* margin: 50px auto; */
     border: solid 1px black;
-    width: 50%;
-    height: 50%;
+    width: 60vw;
+    /* height: 50%; */
     object-fit: contain;
 }
 </style>

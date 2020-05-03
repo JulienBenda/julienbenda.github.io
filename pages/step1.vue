@@ -2,12 +2,16 @@
     <div>
         <main style="padding:5vw;">
             <h2 style="text-align:center;border-color:rgba(0,0,0,0)">
+                <p style="font-size: 50%; text-align: left;" @click="$router.push('/')">
+                    &lt; 記事一覧へ
+                </p>
                 <b style="border-bottom: dotted 3px crimson;">
                     {{title}}
                 </b>
                 <p style="font-size: 50%; text-align: right;">
                     {{time}} 公開
                 </p>
+                <img :src="'/'+this.samn"></img>
             </h2>
                 <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
         </main>
@@ -25,6 +29,7 @@ export default{
             title: "GitHubにアカウントを作成する",
             time: "2020年5月3日",
             url: "https:julienbenda.github.io/step1",
+            samn: 'GitHub.png',
             prekiji:
 `
 ## GitHubとは
@@ -43,6 +48,8 @@ export default{
 
 3. 有料プランか無料プランを選択。無料プランでオッケー。
 
+4. 実際にログインしてみましょう。
+
 ## 終わり
 
 　この通り簡単なのでぜひやってみてください。
@@ -55,8 +62,13 @@ export default{
             meta: [
                 { hid: 'og:url', property: 'og:url', content: this.url },
                 { hid: 'og:description', property: 'og:description', content: 'programming' },
-                { hid: 'og:title', property: 'og:title', content: `CYBER BLOG - ${this.title}` },
+                { hid: 'og:title', property: 'og:title', content: `CYBER LAB - ${this.title}` },
+                { hid: 'og:site_name', property: 'og:site_name', content: `CYBER LAB - ${this.title}` },
+                { hid: 'og:image', property: 'og:image', content: `https://julienbenda.github.io/GitHub.png` },
             ],
+            link: [
+                { rel: 'icon', type: 'image/x-icon', href: './favicon.ico?' }
+            ]
         }
     },
     computed: {
