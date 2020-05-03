@@ -34,7 +34,8 @@ export default{
 ## アカウント登録
 
 1.  GItHubの公式サイト [https://github.com](https://github.com/) にアクセスして、アカウント登録します。
-<center><img src="github1.png"></img></center>
+
+<center><img src="/github1.png"></img></center>
 
 ユーザー名、メールアドレス、パスワードを決めて __Sign Up__ する。
 
