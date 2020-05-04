@@ -21,24 +21,14 @@
                 target="_blank">
                 お問い合わせ
             </a>
-            <!-- <div class="links"> -->
-            <!--     <a -->
-            <!--         href="https://nuxtjs.org/" -->
-            <!--         rel="noopener noreferrer" -->
-            <!--         target="_blank" -->
-            <!--         class="button&#45;&#45;green" -->
-            <!--         > -->
-            <!--         Documentation -->
-            <!--     </a> -->
-            <!--     <a -->
-            <!--         href="https://github.com/nuxt/nuxt.js" -->
-            <!--         rel="noopener noreferrer" -->
-            <!--         target="_blank" -->
-            <!--         class="button&#45;&#45;grey" -->
-            <!--         > -->
-            <!--         GitHub -->
-            <!--     </a> -->
-            <!-- </div> -->
+            <a 
+                href="./privacy-policy"
+                rel="noopener noreferrer"
+                target="_blank"
+                style="display:block; margin-top:25px;"
+                >
+                個人情報保護方針
+            </a>
             <div v-if="look==this.dom_ids.length-1" class="scrlt">
                 <a href="#" @click="clickSmoothScroll()"><span></span>Top</a>
             </div>
@@ -58,8 +48,8 @@
                 <div v-for="item in blogs" :key="item.link" 
                     @click="$router.push('/'+item.link)"
                     style="padding: 25px 0 25px 0; margin: 2vw 0 2vw 0;">
-                    <div style="border: solid 2px black;padding: 25px; width: 100%; max-width: 900px;margin: auto;background: azure;">
-                        <img alt="" :src="'/'+item.smni" style="width: 90%;max-width:500px; margin: auto;"></img>
+                    <div style="border: solid 2px black;box-shadow: 0.1vw 0.1vw 0.5vw 0.1vw black;padding: 12.5px; width: 100%; max-width: 900px;margin: auto;background: white;">
+                        <img alt="" :src="'/'+item.smni" style="width: 100%;max-width:900px; margin: auto;border: solid 0 white;"></img>
                         <div>{{item.title}}</div>
                         <div style="font-size:80%;">{{item.time}}</div>
                     </div>

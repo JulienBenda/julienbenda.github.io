@@ -21,7 +21,16 @@
             target="_blank"                                       
             >
             お問い合わせ 
-        </a></center>
+        </a>
+            <a 
+                href="./privacy-policy"
+                rel="noopener noreferrer"
+                target="_blank"
+                style="display:block; margin-top:25px;"
+                >
+                個人情報保護方針
+            </a>
+        </center>
     </div>
 </template>
 

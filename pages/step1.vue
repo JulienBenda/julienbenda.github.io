@@ -13,7 +13,7 @@
                 </p>
                 <img alt="" :src="'/'+this.samn"></img>
             </h2>
-                <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
+            <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
         </main>
         <center style="margin-bottom: 5vh"><a 
             href="https://forms.gle/yMfcxPtxpsfHzJZ58"
@@ -21,7 +21,16 @@
             target="_blank"
             >
             お問い合わせ 
-            </a></center>
+            </a>
+            <a 
+                href="./privacy-policy"
+                rel="noopener noreferrer"
+                target="_blank"
+                style="display:block; margin-top:25px;"
+                >
+                個人情報保護方針
+            </a>
+        </center>
     </div>
 </template>
 
