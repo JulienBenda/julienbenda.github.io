@@ -11,10 +11,17 @@
                 <p style="font-size: 50%; text-align: right;">
                     {{time}} 公開
                 </p>
-                <img :src="'/'+this.samn"></img>
+                <img rel="" :src="'/'+this.samn"></img>
             </h2>
-                <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
+            <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
         </main>
+        <center style="margin-bottom: 5vh"><a 
+            href="https://forms.gle/yMfcxPtxpsfHzJZ58"
+            rel="noopener noreferrer"    
+            target="_blank"                                       
+            >
+            お問い合わせ 
+        </a></center>
     </div>
 </template>
 

@@ -15,6 +15,12 @@
             <h2 class="subtitle">
                 Nuxt.js + GitHub Pages
             </h2>
+            <a 
+                href="https://forms.gle/yMfcxPtxpsfHzJZ58"
+                rel="noopener noreferrer"
+                target="_blank">
+                お問い合わせ
+            </a>
             <!-- <div class="links"> -->
             <!--     <a -->
             <!--         href="https://nuxtjs.org/" -->
@@ -48,13 +54,15 @@
             <!--     </p> -->
             <!-- </div> -->
             <div id="blogs">
-                <h2 class="subtitle" style="color: #35495e;">記事一覧</h2>
+                <h2 class="subtitle" style="color: black; padding: 0 0 2px 0; border-bottom: solid 3px black; margin-bottom: 5vw;">記事一覧</h2>
                 <div v-for="item in blogs" :key="item.link" 
                     @click="$router.push('/'+item.link)"
-                    style="border: solid 2px black; padding: 25px; margin: 50px 5vw 50px 5vw; background: azure">
-                    <img :src="'/'+item.smni" style="width:50%"></img>
-                    <div>{{item.title}}</div>
-                    <div style="font-size:80%;">{{item.time}}</div>
+                    style="padding: 25px 0 25px 0; margin: 2vw 0 2vw 0;">
+                    <div style="border: solid 2px black;padding: 25px; width: 100%; max-width: 900px;margin: auto;background: azure;">
+                        <img rel="" :src="'/'+item.smni" style="width: 90%;max-width:500px; margin: auto;"></img>
+                        <div>{{item.title}}</div>
+                        <div style="font-size:80%;">{{item.time}}</div>
+                    </div>
                 </div>
             </div>
         </div>

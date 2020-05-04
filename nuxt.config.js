@@ -22,6 +22,8 @@ export default {
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+            { name: 'google-site-verification', content: 'Raqbrw7ORHDnSIcDbBXRcaLKyKdGVBKrmA1_T0HChxg' },
+            { name: 'theme-color', content: '#6495ED' },
             { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
             { hid: 'og:site_name', property: 'og:site_name', content: 'CYBER LAB' },
             { hid: 'og:type', property: 'og:type', content: 'website' },
@@ -53,7 +55,11 @@ export default {
      ** Nuxt.js dev-modules
      */
     buildModules: [
+        '@nuxtjs/google-analytics'
     ],
+    googleAnalytics: {
+        id: 'UA-165379100-1'
+    },
     /*
      ** Nuxt.js modules
      */

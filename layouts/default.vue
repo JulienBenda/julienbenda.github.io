@@ -139,6 +139,7 @@ main h3, main p, main li{
     top: 100vh;
     /* height: 100vh; */
     width: 100vw;
+    text-align: center;
     padding: 5vh 50px 150px 50px;
 }
 /* #introduction { */

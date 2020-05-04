@@ -11,10 +11,17 @@
                 <p style="font-size: 50%; text-align: right;">
                     {{time}} 公開
                 </p>
-                <img :src="'/'+this.samn"></img>
+                <img rel="" :src="'/'+this.samn"></img>
             </h2>
-                <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
+            <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
         </main>
+        <center style="margin-bottom: 5vh"><a 
+            href="https://forms.gle/yMfcxPtxpsfHzJZ58"
+            rel="noopener noreferrer"    
+            target="_blank"                                       
+            >
+            お問い合わせ 
+        </a></center>
     </div>
 </template>
 
@@ -40,7 +47,7 @@ export default{
 
 1.  GItHubの公式サイト [https://github.com](https://github.com/) にアクセスして、アカウント登録します。
 
-<center><img src="/github1.png"></img></center>
+<center><<img rel=' src="/github1.png"></<img rel='></center>
 
 ユーザー名、メールアドレス、パスワードを決めて __Sign Up__ する。
 
