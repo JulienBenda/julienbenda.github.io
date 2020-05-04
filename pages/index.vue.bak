@@ -59,7 +59,7 @@
                     @click="$router.push('/'+item.link)"
                     style="padding: 25px 0 25px 0; margin: 2vw 0 2vw 0;">
                     <div style="border: solid 2px black;padding: 25px; width: 100%; max-width: 900px;margin: auto;background: azure;">
-                        <img alt="" :src="'/'+item.smni" style="width: 90%;max-width:500px; margin: auto;"></img>
+                        <img rel="" :src="'/'+item.smni" style="width: 90%;max-width:500px; margin: auto;"></img>
                         <div>{{item.title}}</div>
                         <div style="font-size:80%;">{{item.time}}</div>
                     </div>

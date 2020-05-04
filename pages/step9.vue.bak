@@ -11,7 +11,7 @@
                 <p style="font-size: 50%; text-align: right;">
                     {{time}} 公開
                 </p>
-                <img alt="" :src="'/'+this.samn"></img>
+                <img rel="" :src="'/'+this.samn"></img>
             </h2>
             <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
         </main>
@@ -33,10 +33,10 @@ import marked from 'marked';
 export default{
     data: function() {
         return {
-            title: "Nuxt.jsの設定をする",
+            title: "remark.js + highlight.js を使ってみる",
             time: "2020年5月3日",
-            url: "https:julienbenda.github.io/step5",
-            samn: 'nuxt.jpeg',
+            url: "https:julienbenda.github.io/step9",
+            samn: 'github-npm-blog.png',
             prekiji:
 `
 ## GitHubとは
@@ -47,7 +47,7 @@ export default{
 
 1.  GItHubの公式サイト [https://github.com](https://github.com/) にアクセスして、アカウント登録します。
 
-<center><<img alt=' src="/github1.png"></<img alt='></center>
+<center><<img rel=' src="/github1.png"></<img rel='></center>
 
 ユーザー名、メールアドレス、パスワードを決めて __Sign Up__ する。
 

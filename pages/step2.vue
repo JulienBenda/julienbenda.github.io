@@ -11,7 +11,7 @@
                 <p style="font-size: 50%; text-align: right;">
                     {{time}} 公開
                 </p>
-                <img rel="" :src="'/'+this.samn"></img>
+                <img alt="" :src="'/'+this.samn"></img>
             </h2>
             <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
         </main>
