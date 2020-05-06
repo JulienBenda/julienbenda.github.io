@@ -1,58 +1,47 @@
 <template>
     <div>
-        <main style="padding:5vw;">
-            <h2 style="text-align:center;border-color:rgba(0,0,0,0)">
-                <p style="font-size: 50%; text-align: left;" @click="$router.push('/')">
-                    &lt; 記事一覧へ
-                </p>
-                <b style="border-bottom: dotted 3px crimson;">
-                    {{title}}
-                </b>
-                <p style="font-size: 50%; text-align: right;">
-                    {{time}} 公開
-                </p>
-                <img alt="" :src="'/'+this.samn"></img>
-            </h2>
-            <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
-        </main>
-        <center style="margin-bottom: 5vh"><a 
-            href="https://forms.gle/yMfcxPtxpsfHzJZ58"
-            rel="noopener noreferrer"    
-            target="_blank"
-            >
-            お問い合わせ 
-            </a>
-            <a 
-                href="./privacy-policy"
-                rel="noopener noreferrer"
-                target="_blank"
-                style="display:block; margin-top:25px;"
-                >
-                個人情報保護方針
-            </a>
-        </center>
+        <DefaultArticle :content="{link:this.link, prekiji:this.prekiji}"/>
     </div>
 </template>
 
 
 <script>
 
-import marked from 'marked';
+import DefaultArticle from '~/components/default-article.vue';
 
 export default{
     data: function() {
         return {
-            title: "GitHubにアカウントを作成する",
-            time: "2020年5月3日",
-            url: "https:julienbenda.github.io/step1",
-            samn: 'GitHub.png',
+            link: "step1",
             prekiji:
 `
 ## GitHubとは
 
 　バージョン管理システムの__「Git」__を利用して、ソフトウェア開発プロジェクトのソースコードを管理・共有することができる __Webサービス__ のこと。利用するには、アカウントの作成が必要になり、基本的機能は無料で使う事ができる。ローカル環境の「Git」で作成した __"ローカルリポジトリ"__ と「GitHub」の __"リモートリポジトリ"__ を送受信してソースコードのバージョン管理をするのが基本。リモートだけでも完結できる。
 
+## 何が嬉しいか
+
+　__WEB上で__ __複数人で__ プログラムコードを管理できる。
+以下はバージョン管理システム(VCS)の要件:
+\`\`\`text
+本来従来のやり方に於いては、複数の人間が複数のファイルを各々編集するため、
+それぞれのファイルの最新の状態が分からなくなったり、
+同一ファイルに対する変更が競合するなどの問題が生じやすいが、
+バージョン管理システム(VCS)は、このような問題を解決する仕組みを提供する。
+そして、ファイルの作成日時、変更日時、変更点などの履歴を保管する機能である。
+これにより、何度も変更を加えたファイルであっても、過去の状態や変更内容を確認したり、
+変更前の状態を復元することが容易になる。
+\`\`\`
+
+これはつまり、開発プロジェクトにはもってこいなわけで、
+エンジニアの現場では、殆どの場合、開発環境でこういったサービスが導入されている。
+エンジニア志望の学生の方には、絶対必須の知識として知っておいてもらいたい。
+また、各プロジェクトにwiki(メモ書き)やタスク管理ツールなど、
+コラボレーションのための機能も充実している。
+
 ## アカウント登録
+
+　登録の仕方は非常に簡単で、以下の手順で行う
 
 1.  GItHubの公式サイト [https://github.com](https://github.com/) にアクセスして、アカウント登録します。
 
@@ -68,29 +57,12 @@ export default{
 
 ## 終わり
 
-　この通り簡単なのでぜひやってみてください。
+　この通り簡単なのでぜひやってみてください。取り敢えず作って見るだけでもいいんですよ。
 `
         }
     },
-    head () {
-        return {
-            title: this.title,
-            meta: [
-                { hid: 'og:url', property: 'og:url', content: this.url },
-                { hid: 'og:description', property: 'og:description', content: 'programming' },
-                { hid: 'og:title', property: 'og:title', content: `CYBER LAB - ${this.title}` },
-                { hid: 'og:site_name', property: 'og:site_name', content: `CYBER LAB - ${this.title}` },
-                { hid: 'og:image', property: 'og:image', content: `https://julienbenda.github.io/GitHub.png` },
-            ],
-            link: [
-                { rel: 'icon', type: 'image/x-icon', href: './favicon.ico?' }
-            ]
-        }
-    },
-    computed: {
-        kiji(){
-            return marked(this.prekiji);
-        }
+    components: {
+        DefaultArticle
     },
 }
 

@@ -1,96 +1,46 @@
 <template>
     <div>
-        <main style="padding:5vw;">
-            <h2 style="text-align:center;border-color:rgba(0,0,0,0)">
-                <p style="font-size: 50%; text-align: left;" @click="$router.push('/')">
-                    &lt; 記事一覧へ
-                </p>
-                <b style="border-bottom: dotted 3px crimson;">
-                    {{title}}
-                </b>
-                <p style="font-size: 50%; text-align: right;">
-                    {{time}} 公開
-                </p>
-                <img alt="" :src="'/'+this.samn"></img>
-            </h2>
-            <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
-        </main>
-        <center style="margin-bottom: 5vh"><a 
-            href="https://forms.gle/yMfcxPtxpsfHzJZ58"
-            rel="noopener noreferrer"    
-            target="_blank"                                       
-            >
-            お問い合わせ 
-        </a>
-            <a 
-                href="./privacy-policy"
-                rel="noopener noreferrer"
-                target="_blank"
-                style="display:block; margin-top:25px;"
-                >
-                個人情報保護方針
-            </a>
-        </center>
+        <DefaultArticle :content="{link:this.link, prekiji:this.prekiji}"/>
     </div>
 </template>
 
 
 <script>
 
-import marked from 'marked';
+import DefaultArticle from '~/components/default-article.vue';
 
 export default{
     data: function() {
         return {
-            title: "GitHubにリポジトリを作成する",
-            time: "2020年5月3日",
-            url: "https:julienbenda.github.io/step3",
-            samn: 'GitHubCube.png',
+            link: "step3",
             prekiji:
 `
-## GitHubとは
+## リポジトリとは
 
-　バージョン管理システムの__「Git」__を利用して、ソフトウェア開発プロジェクトのソースコードを管理・共有することができる __Webサービス__ のこと。利用するには、アカウントの作成が必要になり、基本的機能は無料で使う事ができる。ローカル環境の「Git」で作成した __"ローカルリポジトリ"__ と「GitHub」の __"リモートリポジトリ"__ を送受信してソースコードのバージョン管理をするのが基本。リモートだけでも完結できる。
+　情報工学において、仕様・デザイン・ソースコード・テスト情報・インシデント情報など、システムの開発プロジェクトに関連するデータの一元的な貯蔵庫を意味する。日本語でレポジトリと表記される場合もある。一種のデータベースであり、ソフトウェア開発および保守における各工程の様々な情報を一元管理する。
 
-## アカウント登録
+## リポジトリ作成してみる
+　GitHubの方にリポジトリを作成し、自分のPC上にリポジトリを作成して、整合性を保った状態にしましょう。
 
-1.  GItHubの公式サイト [https://github.com](https://github.com/) にアクセスして、アカウント登録します。
+1. GItHubの公式サイト [https://github.com](https://github.com/) にアクセスして、__Sign In__ します。
 
-<center><<img alt=' src="/github1.png"></<img alt='></center>
+2. 一番右上の方に「+」マークがあるので、クリックして「New repository」を選択。
 
-ユーザー名、メールアドレス、パスワードを決めて __Sign Up__ する。
+3. リポジトリネーム(必須)とdescription(任意)、Public(公開)かPrivate(非公開)を選択しましょう。
+最初のリポジトリネームは、「<自分のアカウント名>.github.io」としてみましょう。
 
-2. メールアドレス宛に認証メールが送られてくるので、リンクにアクセスして認証する。
+4. 次のページに英語で手順が出るので、そのとおりにコマンドを実行してみる。
 
-3. 有料プランか無料プランを選択。無料プランでオッケー。
-
-4. 実際にログインしてみましょう。
+5. これで自分のPCとGitHub上に同じリポジトリが出来た
 
 ## 終わり
 
-　この通り簡単なのでぜひやってみてください。
+　この通り簡単なのでぜひやってみてください。最初のリポジトリは、公開状態にしてやってみましょう。
 `
         }
     },
-    head () {
-        return {
-            title: this.title,
-            meta: [
-                { hid: 'og:url', property: 'og:url', content: this.url },
-                { hid: 'og:description', property: 'og:description', content: 'programming' },
-                { hid: 'og:title', property: 'og:title', content: `CYBER LAB - ${this.title}` },
-                { hid: 'og:site_name', property: 'og:site_name', content: `CYBER LAB - ${this.title}` },
-                { hid: 'og:image', property: 'og:image', content: `https://julienbenda.github.io/GitHub.png` },
-            ],
-            link: [
-                { rel: 'icon', type: 'image/x-icon', href: './favicon.ico?' }
-            ]
-        }
-    },
-    computed: {
-        kiji(){
-            return marked(this.prekiji);
-        }
+    components: {
+        DefaultArticle
     },
 }
 

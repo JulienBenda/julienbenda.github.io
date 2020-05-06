@@ -23,7 +23,8 @@ export default {
     },
     async mounted(){
         console.log('default mounted');
-        hljs.initHighlightingOnLoad();
+        hljs.initHighlighting();
+        // hljs.initHighlightingOnLoad();
     }
 }
 
@@ -137,7 +138,7 @@ main h3, main p, main li{
     position: absolute;
     left: 0;
     top: 100vh;
-    background: azure;
+    background: white;
     /* height: 100vh; */
     width: 100vw;
     text-align: center;

@@ -2,7 +2,6 @@
     <div class="container">
         <div id="top" style="height: 100vh;">
             <!-- <div class="cb"></div> -->
-            <!-- <logo /> -->
             <div class="logo">
                 <div class="triangle2"></div>
                 <div class="triangle1"></div>
@@ -45,22 +44,23 @@
             <!-- </div> -->
             <div id="blogs">
                 <h2 class="subtitle" style="color: black; padding: 0 0 2px 0; border-bottom: solid 3px black; margin-bottom: 5vw;">記事一覧</h2>
-                <div v-for="item in blogs" :key="item.link" 
-                    @click="$router.push('/'+item.link)"
-                    style="padding: 25px 0 25px 0; margin: 2vw 0 2vw 0;">
+                <a v-for="item in blogs" :key="item.link" 
+                    :href="'./'+item.link"
+                    style="padding: 0; margin: calc(25px + 2vw) 0 calc(25px + 2vw) 0; display:block;">
                     <div style="border: solid 2px black;box-shadow: 0.1vw 0.1vw 0.5vw 0.1vw black;padding: 12.5px; width: 100%; max-width: 900px;margin: auto;background: white;">
-                        <img alt="" :src="'/'+item.smni" style="width: 100%;max-width:900px; margin: auto;border: solid 0 white;"></img>
+                        <img alt="" :src="'/'+item.samn" style="width: 100%;max-width:900px; margin: auto;border: solid 0 white;"></img>
                         <div>{{item.title}}</div>
                         <div style="font-size:80%;">{{item.time}}</div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-// import Logo from '~/components/Logo.vue'
+import fileLists from '~/components/fileLists.json';
+
 import Vue from 'vue';
 import smoothScroll from 'vue-smoothscroll';
 
@@ -71,18 +71,7 @@ export default {
         return {
             look: 0,
             dom_ids: [/*'#introduction',*/ '#blogs', '#top'],
-            blogs: [
-                {title: "GitHubにアカウントを作成する", smni: "GitHub.png", time: "2020年5月3日 公開", link: "step1"},
-                {title: "「Git」をインストール", smni: "Git.png", time: "2020年5月3日 公開", link: "step2"},
-                {title: "GitHubにリポジトリを作成する", smni: "GitHubCube.png", time: "2020年5月3日 公開", link: "step3"},
-                {title: "npmをインストールする", smni: "npm.png", time: "2020年5月3日 公開", link: "step4"},
-                {title: "Nuxt.jsの設定をする", smni: "nuxt.jpeg", time: "2020年5月3日 公開", link: "step5"},
-                {title: "GitHubのSSH設定をする", smni: "ssh.jpg", time: "2020年5月3日 公開", link: "step6"},
-                {title: "Nuxt.jsで公開するにあたっての調整", smni: "nuxt.jpeg", time: "2020年5月3日 公開", link: "step7"},
-                {title: "Auditsの機能を使ってサイトのグレードを上げる", smni: "Audits.png", time: "2020年5月3日 公開", link: "step8"},
-                {title: "remark.js + highlight.js を使ってみる", smni: "github-npm-blog.png", time: "2020年5月3日 公開", link: "step9"},
-                {title: "GitHubでサイトを公開する", smni: "ghpages.jpg", time: "2020年5月3日 公開", link: "step10"}
-            ]
+            blogs: Object.values(fileLists).map(item=>{return item})
         }
     },
     methods: {
@@ -98,8 +87,5 @@ export default {
             )
         }
     }
-    // components: {
-    //     Logo
-    // }
 }
 </script>

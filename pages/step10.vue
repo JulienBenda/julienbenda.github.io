@@ -1,70 +1,45 @@
 <template>
     <div>
-        <main style="padding:5vw;">
-            <h2 style="text-align:center;border-color:rgba(0,0,0,0)">
-                <p style="font-size: 50%; text-align: left;" @click="$router.push('/')">
-                    &lt; 記事一覧へ
-                </p>
-                <b style="border-bottom: dotted 3px crimson;">
-                    {{title}}
-                </b>
-                <p style="font-size: 50%; text-align: right;">
-                    {{time}} 公開
-                </p>
-                <img alt="" :src="'/'+this.samn"></img>
-            </h2>
-            <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
-        </main>
-        <center style="margin-bottom: 5vh"><a 
-            href="https://forms.gle/yMfcxPtxpsfHzJZ58"
-            rel="noopener noreferrer"    
-            target="_blank"                                       
-            >
-            お問い合わせ 
-        </a>
-            <a 
-                href="./privacy-policy"
-                rel="noopener noreferrer"
-                target="_blank"
-                style="display:block; margin-top:25px;"
-                >
-                個人情報保護方針
-            </a>
-        </center>
+        <DefaultArticle :content="{link:this.link, prekiji:this.prekiji}"/>
     </div>
 </template>
 
 
 <script>
 
-import marked from 'marked';
+import DefaultArticle from '~/components/default-article.vue';
 
 export default{
     data: function() {
         return {
-            title: "GitHubでサイトを公開する",
-            time: "2020年5月3日",
-            url: "https:julienbenda.github.io/step10",
-            samn: 'ghpages.jpg',
+            link: "step10",
             prekiji:
 `
-## GitHubとは
+## npmとは
+　npmとは__ パッケージ管理システム__ の1種。__Node Package Manager__ の意。
+ライセンスはArtistic License 2.0。Node.jsのパッケージ管理システムであり、V8 JavaScriptエンジンで動作する。npm自身もJavaScriptで記述されている。
+Node.jsは、サーバ上で動作するJavaScriptであるが、Node.jsを使ったツールが開発されるようになると、これらを管理するバージョン管理システムの必要性が生まれた。
+npmは、Node.jsのツールやパッケージ（モジュール）をインストールしたり管理したりするだけでなく、パッケージを扱うためにインターフェイスを備えている。リポジトリ機能も備えており、必要とするパッケージ（モジュール）の検索、ダウンロード、インストール、アップデートを行えたり、開発したパッケージ（モジュール）を他者に公開できたりする。
 
-　バージョン管理システムの__「Git」__を利用して、ソフトウェア開発プロジェクトのソースコードを管理・共有することができる __Webサービス__ のこと。利用するには、アカウントの作成が必要になり、基本的機能は無料で使う事ができる。ローカル環境の「Git」で作成した __"ローカルリポジトリ"__ と「GitHub」の __"リモートリポジトリ"__ を送受信してソースコードのバージョン管理をするのが基本。リモートだけでも完結できる。
+　Node.jsを使う上では避けて通れない、未来はどうなるかわからないが、現在のバックエンドエンジニアの需要スキルは「Rails, Go, Node」といったところなのではないかと思う。
+つまりエンジニア志望の方には是非触っておいてもらいたいものだ。
 
-## アカウント登録
+## npmをインストールする
 
-1.  GItHubの公式サイト [https://github.com](https://github.com/) にアクセスして、アカウント登録します。
+1. npmをインストールするコマンドを入力して実行。
+\`\`\`sh
+$ sudo apt install npm
+\`\`\`
 
-<center><<img alt=' src="/github1.png"></<img alt='></center>
+2. バージョンを確認することで、インストールの是非を確認する。
+\`\`\`sh
+$ npm -v
+ 6.6.6
+\`\`\`
 
-ユーザー名、メールアドレス、パスワードを決めて __Sign Up__ する。
+3. カレントディレクトリを、前の記事で作ったリポジトリに設定する
 
-2. メールアドレス宛に認証メールが送られてくるので、リンクにアクセスして認証する。
-
-3. 有料プランか無料プランを選択。無料プランでオッケー。
-
-4. 実際にログインしてみましょう。
+4. Nuxt.jsをインストールする(次の記事)
 
 ## 終わり
 
@@ -72,25 +47,8 @@ export default{
 `
         }
     },
-    head () {
-        return {
-            title: this.title,
-            meta: [
-                { hid: 'og:url', property: 'og:url', content: this.url },
-                { hid: 'og:description', property: 'og:description', content: 'programming' },
-                { hid: 'og:title', property: 'og:title', content: `CYBER LAB - ${this.title}` },
-                { hid: 'og:site_name', property: 'og:site_name', content: `CYBER LAB - ${this.title}` },
-                { hid: 'og:image', property: 'og:image', content: `https://julienbenda.github.io/GitHub.png` },
-            ],
-            link: [
-                { rel: 'icon', type: 'image/x-icon', href: './favicon.ico?' }
-            ]
-        }
-    },
-    computed: {
-        kiji(){
-            return marked(this.prekiji);
-        }
+    components: {
+        DefaultArticle
     },
 }
 
