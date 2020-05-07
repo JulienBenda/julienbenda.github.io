@@ -23,7 +23,7 @@
             お問い合わせ 
             </a>
             <a 
-                href="./privacy-policy"
+                href="../privacy-policy"
                 rel="noopener noreferrer"
                 target="_blank"
                 style="display:block; margin-top:25px;"
