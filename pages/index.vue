@@ -35,7 +35,10 @@
                :href="'./'+item.link"
                style="padding: 0; margin: calc(25px + 2vw) 0 calc(25px + 2vw) 0; display:block;">
                 <div style="border: solid 2px black;box-shadow: 0.1vw 0.1vw 0.5vw 0.1vw black;padding: 12.5px; width: 100%; max-width: 900px;margin: auto;background: white;">
-                    <img alt="" :src="'/'+item.samn" style="width: 100%;max-width:900px; margin: auto;border: solid 0 white;"></img>
+                    <picture>
+                        <source type="image/webp" :srcset="'/'+(item.samn).split('.')[0]+'.webp'">
+                        <img alt="" :src="'/'+item.samn" style="width: 100%;max-width:900px; margin: auto;border: solid 0 white;"></img>
+                    </picture>
                     <div>{{item.title}}</div>
                     <div style="font-size:80%;">{{item.time}}</div>
                 </div>
@@ -56,6 +59,7 @@ import fileLists from '~/components/fileLists.json';
 
 import Vue from 'vue';
 import smoothScroll from 'vue-smoothscroll';
+import imageResize from '~/modules/imageResize'; // 画像リサイズモジュールの読み込み
 
 Vue.use(smoothScroll);
 

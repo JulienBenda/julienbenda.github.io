@@ -11,9 +11,12 @@
                 <p style="font-size: 50%; text-align: right;">
                     {{time}}
                 </p>
-                <img alt="" :src="'/'+this.samn"></img>
+                <picture>
+                    <source type="image/webp" :srcset="'/'+(this.samn).split('.')[0]+'.webp'">
+                    <img alt="" :src="'/'+this.samn"></img>
+                </picture>
             </h2>
-            <div style="margin-top: 5vh; padding: 5vw; border: solid 0.2vw black;" v-html="kiji"></div>
+            <div style="margin-top: 5vh; padding: 5vw; border: solid 0.5vw black;" v-html="kiji"></div>
         </main>
         <center style="margin-bottom: 10vh;">
             <a id="blink" v-if="this.beforeLink(this.url)" style="font-size: 80%; margin-right: 2vw" :href="'../'+this.beforeLink(this.url)">
@@ -104,6 +107,7 @@ export default{
     },
     computed: {
         kiji() {
+            console.log(this.prekiji.length);
             return marked(this.prekiji);
         },
     },
