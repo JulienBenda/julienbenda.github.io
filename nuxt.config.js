@@ -1,9 +1,9 @@
 export default {
-    render: {
-        static: {
-            maxAge: 1000 * 60 * 60 * 24 * 7
-        }
-    },
+    // render: {
+    //     static: {
+    //         maxAge: 1000 * 60 * 60 * 24 * 7
+    //     }
+    // },
     mode: 'universal',
     /*
      ** Headers of the page
@@ -50,6 +50,10 @@ export default {
      ** Plugins to load before mounting the App
      */
     plugins: [
+        // {
+        //     src: '~/plugins/sw.js',
+        //     ssr: false
+        // }
     ],
     /*
      ** Nuxt.js dev-modules
@@ -64,24 +68,25 @@ export default {
      ** Nuxt.js modules
      */
     modules: [
-        '@nuxtjs/component-cache',
-        // With options
-        ['@nuxtjs/component-cache', {
-            max: 1000 * 60 * 60 * 2,
-            maxAge: 31536000
-        }],
+        // '@nuxtjs/component-cache',
+        // // With options
+        // ['@nuxtjs/component-cache', {
+        //     max: 1000 * 60 * 60 * 2,
+        //     maxAge: 31536000
+        // }],
         '@nuxtjs/pwa',
     ],
+    pwa: {
+        workbox: {
+            /* workbox options */
+            importScripts: [
+                'sw.js'
+            ],
+        }
+    },
     manifest: {
         name: "CYBER LAB",
         lang: 'ja',
-        "icons": [
-        {
-            "src": "./js.jpg",
-            "sizes": "192x192",
-            "type": "image/jpg"
-        }
-    ]
     },
     /*
      ** Build configuration

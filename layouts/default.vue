@@ -13,7 +13,7 @@ import marked from 'marked';
 
 export default {
     created: function(){
-        console.log('default created');
+        if (!process.client) console.log('default created');
         marked.setOptions({
             langPrefix: '',
             highlight: function(code, lang) {
@@ -22,7 +22,7 @@ export default {
         });
     },
     async mounted(){
-        console.log('default mounted');
+        if (!process.client) console.log('default mounted');
         hljs.initHighlighting();
         // hljs.initHighlightingOnLoad();
     }

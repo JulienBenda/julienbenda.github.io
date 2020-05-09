@@ -107,7 +107,7 @@ export default{
     },
     computed: {
         kiji() {
-            console.log(this.prekiji.length);
+            if (!process.client) console.log(this.prekiji.length);
             return marked(this.prekiji);
         },
     },
