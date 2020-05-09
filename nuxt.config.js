@@ -79,9 +79,28 @@ export default {
     pwa: {
         workbox: {
             /* workbox options */
-            importScripts: [
-                'sw.js'
+            skipWaiting: true,
+            clientsClaim: true,
+            runtimeCaching: [
+                {
+                    // APIから取得した結果
+                    urlPattern: '/.*',
+                    handler: 'cacheFirst',
+                    method: 'GET',
+                    strategyOptions: {
+                        cacheExpiration: {
+                            maxAgeSeconds: 60 * 60 * 24 * 60, // 60日
+                        },
+                        cacheableResponse: {
+                            statuses: [200],
+                        },
+                    },
+                },
             ],
+            
+            // importScripts: [
+            //     'sw.js'
+            // ],
         }
     },
     manifest: {
