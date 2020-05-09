@@ -44,7 +44,7 @@ export default {
      ** Global CSS
      */
     css: [
-        {src: '~/node_modules/highlight.js/styles/gruvbox-dark.css', lang: 'css'},
+        {src: '~/node_modules/highlight.js/styles/ir-black.css', lang: 'css'},
     ],
     /*
      ** Plugins to load before mounting the App

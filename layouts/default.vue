@@ -153,15 +153,15 @@ main h3, main p, main li{
 /*     width: 100vw; */
 /*     padding: 25vh 50px 50px 50px; */
 /* } */
-/* .cb { */
-/*     border-left: 1px solid black; */
-/*     width: 0; */
-/*     top: 0; */
-/*     left: 50%; */
-/*     height: 100vh; */
-/*     position: fixed; */
-/*     z-index: 362187; */
-/* } */
+.cb {
+    border-left: 1px solid black;
+    width: 0;
+    top: 0;
+    left: 50%;
+    height: 100vh;
+    position: fixed;
+    z-index: 362187;
+}
 .scrl, .scrlt{
     position: fixed;
     top: 90%;
