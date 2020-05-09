@@ -1,9 +1,9 @@
 export default {
-    // render: {
-    //     static: {
-    //         maxAge: 1000 * 60 * 60 * 24 * 7
-    //     }
-    // },
+    render: {
+        static: {
+            maxAge: 1000 * 60 * 60 * 24 * 7
+        }
+    },
     mode: 'universal',
     /*
      ** Headers of the page
@@ -66,7 +66,10 @@ export default {
     modules: [
         '@nuxtjs/component-cache',
         // With options
-        ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],
+        ['@nuxtjs/component-cache', {
+            max: 1000 * 60 * 60 * 2,
+            maxAge: 31536000
+        }],
     ],
     /*
      ** Build configuration
