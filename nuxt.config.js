@@ -70,11 +70,17 @@ export default {
             max: 1000 * 60 * 60 * 2,
             maxAge: 31536000
         }],
+        '@nuxtjs/pwa',
     ],
+    manifest: {
+        name: "CYBER LAB",
+        lang: 'ja'
+    },
     /*
      ** Build configuration
      */
     build: {
+        hardSource: true,
         /*
          ** You can extend webpack config here
          */

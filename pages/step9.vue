@@ -7,7 +7,7 @@
 
 <script>
 
-import DefaultArticle from '~/components/default-article.vue';
+const DefaultArticle = () => import('~/components/default-article.vue');
 
 export default{
     data: function() {
