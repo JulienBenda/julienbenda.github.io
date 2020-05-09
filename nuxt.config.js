@@ -4,6 +4,7 @@ export default {
     //         maxAge: 1000 * 60 * 60 * 24 * 7
     //     }
     // },
+    version: pkg.version,
     mode: 'universal',
     /*
      ** Headers of the page
