@@ -28,14 +28,6 @@
                 >
                 個人情報保護方針
             </a>
-            <!-- <div id="introduction"> -->
-            <!--     <p class="subtitle" style="color: black;"> -->
-            <!--         このページはGitHub PagesとNuxt.jsを用いて作られています。 -->
-            <!--     </p> -->
-            <!--     <p class="subtitle" style="margin&#45;top: 10%; color: black;"> -->
-            <!--         このように公開する方法を紹介する記事を上げていきたいと思います。 -->
-            <!--     </p> -->
-            <!-- </div> -->
         </div>
         <div id="blogs">
             <h2 class="subtitle" style="color: black; padding: 0 0 2vw 0; border-bottom: solid 2px black; margin-bottom: 5vw;">記事一覧</h2>
