@@ -64,6 +64,9 @@ export default {
      ** Nuxt.js modules
      */
     modules: [
+        '@nuxtjs/component-cache',
+        // With options
+        ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],
     ],
     /*
      ** Build configuration
