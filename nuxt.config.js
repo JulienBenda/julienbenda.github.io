@@ -74,7 +74,14 @@ export default {
     ],
     manifest: {
         name: "CYBER LAB",
-        lang: 'ja'
+        lang: 'ja',
+        "icons": [
+        {
+            "src": "./js.jpg",
+            "sizes": "192x192",
+            "type": "image/jpg"
+        }
+    ]
     },
     /*
      ** Build configuration
