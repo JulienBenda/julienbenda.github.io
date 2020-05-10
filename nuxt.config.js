@@ -1,3 +1,5 @@
+const domain = "https://julienbenda.github.io".match(/^https?:\/{2,}(.*?)(?:\/|\?|#|$)/)[1]
+
 export default {
     // render: {
     //     static: {
@@ -77,6 +79,12 @@ export default {
         //     maxAge: 31536000
         // }],
         '@nuxtjs/pwa',
+        ['@nuxtjs/google-adsense', {
+            id: "ca-pub-4943358250220700",
+            pageLevelAds: true,
+            analyticsUacct: "UA-165379100-1", // アナリティクスと連携する場合のみ必要
+            analyticsDomainName: domain                 // アナリティクスと連携する場合のみ必要
+        }]
     ],
     pwa: {
         workbox: {
