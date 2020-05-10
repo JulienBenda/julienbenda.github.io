@@ -30,19 +30,27 @@
             </a>
         </div>
         <div id="blogs">
-            <h2 class="subtitle" style="color: black; padding: 0 0 2vw 0; border-bottom: solid 2px black; margin-bottom: 5vw;">記事一覧</h2>
-            <a v-for="item in blogs" :key="item.link" 
-               :href="'./'+item.link"
-               style="padding: 0; margin: calc(25px + 2vw) 0 calc(25px + 2vw) 0; display:block;">
-                <div style="border: solid 2px black;box-shadow: 0.1vw 0.1vw 0.5vw 0.1vw black;padding: 12.5px; width: 100%; max-width: 900px;margin: auto;background: white;">
-                    <picture>
-                        <source type="image/webp" :srcset="'/'+(item.samn).split('.')[0]+'.webp'">
-                        <img alt="" :src="'/'+item.samn" style="width: 100%;max-width:90%; margin: auto;border: solid 0 white;"></img>
-                    </picture>
-                    <div>{{item.title}}</div>
-                    <div style="font-size:80%;">{{item.time}}</div>
-                </div>
-            </a>
+            <h2 class="subtitle" style="color: black;">
+                LATEST ARTICLES
+            </h2>
+            <div class="nyoibo" style="margin-bottom: 5%;">
+            </div>
+            <div class="articleContainer">
+                <a v-for="item in blogs" :key="item.link" 
+                   :href="'./'+item.link"
+                   class="articleItem">
+                    <div class="innerArticleItem">
+                        <picture>
+                            <source type="image/webp" :srcset="'/'+(item.samn).split('.')[0]+'.webp'">
+                            <img alt="" :src="'/'+item.samn" style="width: 100%; margin: auto;border: solid 0 white;"></img>
+                        </picture>
+                        <div style="position: absolute; bottom: 0px; width: 100%; padding: 10px;">
+                            <div style="margin-bottom: 5px;">{{item.title}}</div>
+                            <div style="font-size: 80%;">{{item.time}}</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
         <div v-if="look==this.dom_ids.length-1" class="scrlt">
             <a href="#" @click="clickSmoothScroll()"><span></span>Top</a>

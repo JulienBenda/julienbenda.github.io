@@ -85,6 +85,16 @@ html {
         --font-size: 3.5vw;
         --logo-top: -50px;
     }
+    .articleContainer{
+        display: block;
+    }
+    .articleItem{
+        padding: 0;
+        margin: calc(25px + 2vw) auto calc(25px + 2vw) auto;
+        display: block;
+        width: 75vw;
+        height: 65vw;
+    }
 }
 /* 横長 */
 @media screen and (orientation: landscape) {
@@ -92,6 +102,37 @@ html {
         --font-size: 1.5vw;
         --logo-scale: 0;
     }
+    .articleContainer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex: 1 1 33%;
+    }
+    .articleContainer::after{
+        content: "";
+        display: block;
+        width: 29vw;
+    }
+    .articleItem{
+        padding: 0;
+        margin: calc(25px + 2vw) 0 calc(25px + 2vw) 0;
+        display: block;
+        width: 29vw;
+        height: 25vw;
+    }
+}
+
+.innerArticleItem{
+    position: relative;
+    border: solid 2px black;
+    box-shadow: 0.1vw 0.1vw 0.5vw 0.1vw black;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 900px;
+    max-height: 900px;
+    margin: auto;
+    background: white;
 }
 
 html, body {
@@ -264,6 +305,21 @@ main h3, main p, main li{
     }
 }
 
+.nyoibo {
+    border-bottom: solid 2px black;
+    margin: auto;
+    -webkit-animation: nyoibo 1.5s forwards;
+}
+
+@keyframes nyoibo {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
 .logo {
     animation: turn 2s linear forwards 1s;     
     transform: scale(0.5, 0.5) rotateX(180deg);
@@ -369,5 +425,13 @@ img {
     width: 60vw;
     /* height: 50%; */
     object-fit: contain;
+}
+
+/* add marked styles */
+blockquote {
+    border-left: 4px solid darkslategray;
+    padding: 0 15px;
+    /* color: #777777; */
+    /* color: #fafafa; */
 }
 </style>

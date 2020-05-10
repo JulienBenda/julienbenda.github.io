@@ -13,10 +13,10 @@
                 </p>
                 <picture>
                     <source type="image/webp" :srcset="'/'+(this.samn).split('.')[0]+'.webp'">
-                    <img alt="" :src="'/'+this.samn"></img>
+                    <img alt="" :src="'/'+this.samn" style="width: 100%;max-width:50%; margin: auto";></img>
                 </picture>
             </h2>
-            <div style="margin-top: 5vh; padding: 5vw; border: solid 0.5vw black;" v-html="kiji"></div>
+            <div style="margin-top: 5vh; padding: 5vw; border: solid 0.3vh black;" v-html="kiji"></div>
         </main>
         <center style="margin-bottom: 10vh;">
             <a id="blink" v-if="this.beforeLink(this.url)" style="font-size: 80%; margin-right: 2vw" :href="'../'+this.beforeLink(this.url)">
