@@ -66,8 +66,6 @@ npm install はそれをやってくれない。
 そしてなおかつ npm install より高速。
 > 引用 : [あなたがnpm installをしてはいけない時](https://qiita.com/jigengineer/items/2b15797b850179cb8be0)
 
-- 
-
 ## 終わり
 
 　npmに関しては、ややバグの件数が多いように思えるので、

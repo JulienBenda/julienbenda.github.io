@@ -25,6 +25,13 @@ export default {
         if (!process.client) console.log('default mounted');
         // hljs.initHighlighting();
         hljs.initHighlightingOnLoad();
+        // await this.sleep(30000);
+        // window.location.href=window.location.href;
+    },
+    methods: {
+        // sleep: function(n) {
+        //     return new Promise(resolve => setTimeout(resolve, n));
+        // }
     }
 }
 
@@ -92,8 +99,8 @@ html {
         padding: 0;
         margin: calc(25px + 2vw) auto calc(25px + 2vw) auto;
         display: block;
-        width: 75vw;
-        height: 65vw;
+        width: 70vw;
+        height: 55vw;
     }
 }
 /* 横長 */
@@ -124,8 +131,7 @@ html {
 
 .innerArticleItem{
     position: relative;
-    border: solid 2px black;
-    box-shadow: 0.1vw 0.1vw 0.5vw 0.1vw black;
+    box-shadow: 0.1vh 0.1vh 0.5vh 0.1vh black;
     padding: 0;
     width: 100%;
     height: 100%;
@@ -421,7 +427,8 @@ main h3, main p, main li{
 
 img {
     /* margin: 50px auto; */
-    border: solid 1px black;
+    /* border: solid 1px black; */
+    box-shadow: 0.1vh 0.1vh 0.5vh 0.1vh black;
     width: 60vw;
     /* height: 50%; */
     object-fit: contain;
