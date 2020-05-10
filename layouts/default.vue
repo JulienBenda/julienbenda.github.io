@@ -23,8 +23,8 @@ export default {
     },
     async mounted(){
         if (!process.client) console.log('default mounted');
-        hljs.initHighlighting();
-        // hljs.initHighlightingOnLoad();
+        // hljs.initHighlighting();
+        hljs.initHighlightingOnLoad();
     }
 }
 

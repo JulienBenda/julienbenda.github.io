@@ -1,9 +1,11 @@
 export default {
-    // render: {
-    //     static: {
-    //         maxAge: 1000 * 60 * 60 * 24 * 7
-    //     }
-    // },
+    render: {
+        static: {
+            maxAge: 1000 * 60 * 60 * 24 * 60
+        },
+        dist: {
+        }
+    },
     mode: 'universal',
     /*
      ** Headers of the page
@@ -79,24 +81,31 @@ export default {
     pwa: {
         workbox: {
             /* workbox options */
-            skipWaiting: true,
-            clientsClaim: true,
-            runtimeCaching: [
-                {
-                    // APIから取得した結果
-                    urlPattern: '/.*',
-                    handler: 'cacheFirst',
-                    method: 'GET',
-                    strategyOptions: {
-                        cacheExpiration: {
-                            maxAgeSeconds: 60 * 60 * 24 * 60, // 60日
-                        },
-                        cacheableResponse: {
-                            statuses: [200],
-                        },
-                    },
-                },
-            ],
+            // offline: false,
+            // skipWaiting: true,
+            // clientsClaim: true,
+            // runtimeCaching: [
+            //     {
+            //         urlPattern: '/_nuxt/',
+            //         // handler: 'staleWhileRevalidate',
+            //         handler: 'CacheFirst',
+            //         method: 'GET',
+            //         strategyOptions: {
+            //             cacheExpiration: {
+            //                 maxAgeSeconds: 60 * 60 * 24 * 60, // 60日
+            //             },
+            //             cacheableResponse: {
+            //                 statuses: [200],
+            //             },
+            //         },
+            //     },
+            //     {
+            //         // デフォルト（最後に記述する）
+            //         urlPattern: '/*',
+            //         handler: 'networkFirst',
+            //         method: 'GET',
+            //     },
+            // ],
             
             // importScripts: [
             //     'sw.js'
