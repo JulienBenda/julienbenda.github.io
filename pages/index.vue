@@ -12,7 +12,7 @@
                 CYBER LAB
             </h1>
             <h2 class="subtitle">
-                Nuxt.js + GitHub Pages
+                Provided By {Nuxt.js + GitHub Pages}
             </h2>
             <a 
                 href="https://forms.gle/yMfcxPtxpsfHzJZ58"

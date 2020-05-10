@@ -15,35 +15,109 @@ export default{
             link: "step9",
             prekiji:
 `
-## npmとは
-　npmとは__ パッケージ管理システム__ の1種。__Node Package Manager__ の意。
-ライセンスはArtistic License 2.0。Node.jsのパッケージ管理システムであり、V8 JavaScriptエンジンで動作する。npm自身もJavaScriptで記述されている。
-Node.jsは、サーバ上で動作するJavaScriptであるが、Node.jsを使ったツールが開発されるようになると、これらを管理するバージョン管理システムの必要性が生まれた。
-npmは、Node.jsのツールやパッケージ（モジュール）をインストールしたり管理したりするだけでなく、パッケージを扱うためにインターフェイスを備えている。リポジトリ機能も備えており、必要とするパッケージ（モジュール）の検索、ダウンロード、インストール、アップデートを行えたり、開発したパッケージ（モジュール）を他者に公開できたりする。
+## marked.jsとは
+　JavaScriptによるMarkdownのパーサーである。
 
-　Node.jsを使う上では避けて通れない、未来はどうなるかわからないが、現在のバックエンドエンジニアの需要スキルは「Rails, Go, Node」といったところなのではないかと思う。
-つまりエンジニア志望の方には是非触っておいてもらいたいものだ。
+　Markdown（マークダウン）は、
+メールを記述する時のように書きやすくて読みやすいプレーンテキストを、
+ある程度見栄えのするHTML文書へ変換できるフォーマットとして開発されたもの。
 
-## npmをインストールする
+　要するにHTMLを直接書いていくより、Markdownで書いていって、
+最終的にコンバートして表示したほうが、書きやすいし効率的だと考えているからである。
+また、以下に述べる「highlight.js」と合わせて使いやすい。
 
-1. npmをインストールするコマンドを入力して実行。
+> [公式ドキュメント](https://marked.js.org/#/README.md#README.md)
+
+## highlight.jsとは
+　コードにシンタックスハイライトを実現するためのJavaScriptライブラリである。
+サイト等でプログラムを公開したいときに、非常に有用である。
+
+> [公式ドキュメント](https://highlightjs.org/)
+
+## 使い方
+　まずはnpmでインストールする。
 \`\`\`sh
-$ sudo apt install npm
+$ npm install highlight.js marked
 \`\`\`
 
-2. バージョンを確認することで、インストールの是非を確認する。
-\`\`\`sh
-$ npm -v
- 6.6.6
+### 1. 設定
+　../layouts/default.vueを以下のように修正する
+
+\`\`\`vue
+<template>
+    <div>
+        <nuxt />
+    </div>
+</template>
+
+
+<script>
+import Vue from 'vue';
+
+import hljs from 'highlight.js';
+import marked from 'marked';
+
+export default {
+    created: function(){
+        if (!process.client) console.log('default created');
+        marked.setOptions({
+            langPrefix: '',
+            highlight: function(code, lang) {
+                return hljs.highlightAuto(code, [lang]).value;
+            }
+        });
+    },
+    async mounted(){
+        if (!process.client) console.log('default mounted');
+        // hljs.initHighlighting();
+        hljs.initHighlightingOnLoad();
+    },
+}
+
+<\/script>
 \`\`\`
 
-3. カレントディレクトリを、前の記事で作ったリポジトリに設定する
+これで、ハイライトの設定とマークダウンのオプション設定は終わり。
 
-4. Nuxt.jsをインストールする(次の記事)
+また、__&lt;blockquote&gt;__がスタイル指定されていないので、同じファイルに以下の記述をする。
+\`\`\`css
+<style>
+blockquote {
+    border-left: 4px solid darkslategray;
+    padding: 0 15px;
+}
+<\/style>
+\`\`\`
+　あやふやな記憶だが、確かリストもスタイル指定されていなかったかもしれない。
+しかし、今回は特に記載しない。
+調べ次第更新して追記してゆくつもりである。
+
+### 2. コンポーネントなどで使う
+
+\`\`\`vue
+<template>
+  <div v-html="text"></div>
+</template>
+
+<script>
+import marked from "marked";
+
+export default{
+    computed: {
+        text() {
+            return marked("# Hello");
+        },
+    },
+}
+<\/script>
+\`\`\`
+
+簡単である。
 
 ## 終わり
 
-　この通り簡単なのでぜひやってみてください。
+　何から何までプログラマ御用達である。
+もうJavaScriptさえあれば何も要らない。
 `
         }
     },

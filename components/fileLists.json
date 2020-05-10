@@ -7,6 +7,6 @@
     "step6": {"title": "GitHubのSSH設定をする", "samn": "ssh.jpg", "time": "2020年5月3日 公開", "link": "step6"},
     "step7": {"title": "Nuxt.jsで公開するにあたっての調整", "samn": "nuxt.jpeg", "time": "2020年5月3日 公開", "link": "step7"},
     "step8": {"title": "Auditsの機能を使ってサイトのグレードを上げる", "samn": "Audits.png", "time": "2020年5月3日 公開", "link": "step8"},
-    "step9": {"title": "remark.js + highlight.js を使ってみる", "samn": "github-npm-blog.png", "time": "2020年5月3日 公開", "link": "step9"},
+    "step9": {"title": "marked.js + highlight.js を使ってみる", "samn": "github-npm-blog.png", "time": "2020年5月3日 公開", "link": "step9"},
     "step10": {"title": "GitHubでサイトを公開する", "samn": "ghpages.jpg", "time": "2020年5月3日 公開", "link": "step10"}
 }

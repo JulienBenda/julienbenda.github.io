@@ -121,6 +121,7 @@ export default {
      ** Build configuration
      */
     build: {
+        analyze: true,
         hardSource: true,
         /*
          ** You can extend webpack config here

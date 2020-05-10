@@ -15,35 +15,64 @@ export default{
             link: "step8",
             prekiji:
 `
-## npmとは
-　npmとは__ パッケージ管理システム__ の1種。__Node Package Manager__ の意。
-ライセンスはArtistic License 2.0。Node.jsのパッケージ管理システムであり、V8 JavaScriptエンジンで動作する。npm自身もJavaScriptで記述されている。
-Node.jsは、サーバ上で動作するJavaScriptであるが、Node.jsを使ったツールが開発されるようになると、これらを管理するバージョン管理システムの必要性が生まれた。
-npmは、Node.jsのツールやパッケージ（モジュール）をインストールしたり管理したりするだけでなく、パッケージを扱うためにインターフェイスを備えている。リポジトリ機能も備えており、必要とするパッケージ（モジュール）の検索、ダウンロード、インストール、アップデートを行えたり、開発したパッケージ（モジュール）を他者に公開できたりする。
+## Auditsとは
 
-　Node.jsを使う上では避けて通れない、未来はどうなるかわからないが、現在のバックエンドエンジニアの需要スキルは「Rails, Go, Node」といったところなのではないかと思う。
-つまりエンジニア志望の方には是非触っておいてもらいたいものだ。
+　インターネットという広大な海で遭難しかけているエンジニアを導く灯台である(と個人的な感想を持っている)。
+Chromeにはデベロッパーツールに標準搭載されている。主な機能として以下の項目を観点に、対象ウェブサイトをスコアリングしてくれるものだ。
 
-## npmをインストールする
+- Performance
+- PWA
+- Accessibility
+- Best Practices
+- SEO
 
-1. npmをインストールするコマンドを入力して実行。
-\`\`\`sh
-$ sudo apt install npm
-\`\`\`
+---
 
-2. バージョンを確認することで、インストールの是非を確認する。
-\`\`\`sh
-$ npm -v
- 6.6.6
-\`\`\`
+以下によく怒られることを書いていこうと思う。
 
-3. カレントディレクトリを、前の記事で作ったリポジトリに設定する
+### 1. Performance
 
-4. Nuxt.jsをインストールする(次の記事)
+- image filesはwebpを使うべき。
+- Cache TTL が短すぎる(GitHub Pagesの場合これは解決できないと結論づけている)。
+> Because of : Thanks for reaching out to GitHub Support about using GitHub Pages
+We set the following Cache-Control header for all GitHub Pages content:
+Cache-Control: max-age=600
+This header is the same for all assets on all sites on our Pages service, and we don't currently provide a way to alter the value.
+I hope that this answers your questions.
+https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages
+
+### 2. PWA
+
+- Nuxt の場合は「@nuxtjs/pwa」をインストールしてやれば良い。
+
+> プログレッシブウェブアプリケーションは、ウェブを通じて配信されるアプリケーションソフトウェアの一種であり、
+HTML、CSS、JavaScriptなどの一般的なウェブテクノロジーを使用して構築されています。
+これは、標準に準拠したブラウザを使用するすべてのプラットフォームで動作することを目的としています。
+機能には、オフラインでの作業、プッシュ通知、デバイスのハードウェアアクセスが含まれデスクトップおよびモバイルデバイス上のネイティブアプリケーションと同様のユーザーエクスペリエンスを作成できます。
+
+### 3. Accessibility
+
+- バックグラウンドの色とテキストの色のコントラストが文字の視認性を下げるので改善すべき。
+> 便利なツールがある https://contrast-ratio.com/
+
+- imagesにalt属性を使用すべき。
+
+- formにはlabelを使用すべき。
+
+
+### 4. Best Practices
+
+- target="_blank"を使って外部リンクする場合、rel="noopener"等を使用すべき。
+
+### 5. SEO
+
+- metaタグが指定されていないと怒られる。
+
+思いついたら追加していきたい。
 
 ## 終わり
 
-　この通り簡単なのでぜひやってみてください。
+　サイトを上げる前に、このツールでテストをして、スコアが良ければ更新するというフローがおすすめである。
 `
         }
     },
