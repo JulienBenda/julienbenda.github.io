@@ -44,7 +44,6 @@ https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-ser
 ### 2. PWA
 
 - Nuxt の場合は「@nuxtjs/pwa」をインストールしてやれば良い。
-
 > プログレッシブウェブアプリケーションは、ウェブを通じて配信されるアプリケーションソフトウェアの一種であり、
 HTML、CSS、JavaScriptなどの一般的なウェブテクノロジーを使用して構築されています。
 これは、標準に準拠したブラウザを使用するすべてのプラットフォームで動作することを目的としています。

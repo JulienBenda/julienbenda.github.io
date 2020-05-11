@@ -8,7 +8,9 @@
 <script>
 import Vue from 'vue';
 
-import hljs from 'highlight.js';
+import highlight from 'highlight.js';
+// Look at file ~/node_modules/highlight.js/lib/index.js
+
 import marked from 'marked';
 
 export default {
@@ -17,14 +19,14 @@ export default {
         marked.setOptions({
             langPrefix: '',
             highlight: function(code, lang) {
-                return hljs.highlightAuto(code, [lang]).value;
+                return highlight.highlightAuto(code, [lang]).value;
             }
         });
     },
     async mounted(){
         if (!process.client) console.log('default mounted');
-        // hljs.initHighlighting();
-        hljs.initHighlightingOnLoad();
+        // highlight.initHighlighting();
+        highlight.initHighlightingOnLoad();
         // await this.sleep(30000);
         // window.location.href=window.location.href;
     },

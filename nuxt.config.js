@@ -54,10 +54,6 @@ export default {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        // {
-        //     src: '~/plugins/sw.js',
-        //     ssr: false
-        // }
     ],
     /*
      ** Nuxt.js dev-modules
@@ -90,31 +86,31 @@ export default {
         workbox: {
             // workbox options
             // 以下無駄、gh-pagesのcache ttlは10mで一律変更不能
-            offline: false,
-            skipWaiting: true,
-            clientsClaim: true,
-            runtimeCaching: [
-                {
-                    urlPattern: '/_nuxt/',
-                    // handler: 'staleWhileRevalidate',
-                    handler: 'CacheFirst',
-                    method: 'GET',
-                    strategyOptions: {
-                        cacheExpiration: {
-                            maxAgeSeconds: 60 * 60 * 24 * 60, // 60日
-                        },
-                        cacheableResponse: {
-                            statuses: [200],
-                        },
-                    },
-                },
-                {
-                    // デフォルト（最後に記述する）
-                    urlPattern: '/*',
-                    handler: 'networkFirst',
-                    method: 'GET',
-                },
-            ],
+            // offline: false,
+            // skipWaiting: true,
+            // clientsClaim: true,
+            // runtimeCaching: [
+            //     {
+            //         urlPattern: '/_nuxt/',
+            //         // handler: 'staleWhileRevalidate',
+            //         handler: 'CacheFirst',
+            //         method: 'GET',
+            //         strategyOptions: {
+            //             cacheExpiration: {
+            //                 maxAgeSeconds: 60 * 60 * 24 * 60, // 60日
+            //             },
+            //             cacheableResponse: {
+            //                 statuses: [200],
+            //             },
+            //         },
+            //     },
+            //     {
+            //         // デフォルト（最後に記述する）
+            //         urlPattern: '/*',
+            //         handler: 'networkFirst',
+            //         method: 'GET',
+            //     },
+            // ],
             
             // importScripts: [
             //     'sw.js'
@@ -131,6 +127,9 @@ export default {
     build: {
         analyze: true,
         hardSource: true,
+
+        // Note: The vendor array has been deprecated in Nuxt 2.0
+        // vendor: ['highlight.js/lib/highlight.js'],
         /*
          ** You can extend webpack config here
          */
