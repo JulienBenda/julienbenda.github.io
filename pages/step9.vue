@@ -1,6 +1,6 @@
 <template>
     <div>
-        <DefaultArticle :content="{link:this.link, prekiji:this.prekiji}"/>
+        <DefaultArticle :content="{link:this.link, kiji:kiji}"/>
     </div>
 </template>
 
@@ -8,6 +8,7 @@
 <script>
 
 const DefaultArticle = () => import('~/components/default-article.vue');
+import marked from 'marked';
 
 export default{
     data: function() {
@@ -36,7 +37,7 @@ export default{
 
 ## 使い方
 　まずはnpmでインストールする。
-\`\`\`sh
+\`\`\`bash
 $ npm install highlight.js marked
 \`\`\`
 
@@ -120,6 +121,12 @@ export default{
 もうJavaScriptさえあれば何も要らない。
 `
         }
+    },
+    computed: {
+        kiji() {
+            if (!process.client) console.log(this.prekiji.length);
+            return marked(this.prekiji);
+        },
     },
     components: {
         DefaultArticle

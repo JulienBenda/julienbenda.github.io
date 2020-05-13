@@ -1,6 +1,6 @@
 <template>
     <div>
-        <DefaultArticle :content="{link:this.link, prekiji:this.prekiji}"/>
+        <DefaultArticle :content="{link:this.link, kiji:kiji}"/>
     </div>
 </template>
 
@@ -8,6 +8,7 @@
 <script>
 
 const DefaultArticle = () => import('~/components/default-article.vue');
+import marked from 'marked';
 
 export default{
     data: function() {
@@ -28,12 +29,12 @@ npmは、Node.jsのツールやパッケージ（モジュール）をインス�
 ## npmをインストールする
 
 1. npmをインストールするコマンドを入力して実行。
-\`\`\`sh
+\`\`\`bash
 $ sudo apt install npm
 \`\`\`
 
 2. バージョンを確認することで、インストールの是非を確認する。
-\`\`\`sh
+\`\`\`bash
 $ npm -v
  6.6.6
 \`\`\`
@@ -41,7 +42,7 @@ $ npm -v
 3. カレントディレクトリを、前の記事で作ったリポジトリに設定する
 
 4. Nuxt.jsをグローバルインストールする
-\`\`\`js
+\`\`\`javascript
 $ npm install -g nuxt
 \`\`\`
 
@@ -72,6 +73,12 @@ npm install はそれをやってくれない。
 いざというときに、正確かつ迅速に対応できるようにしておくためにも、こういった仕組みの把握も重要である。
 `
         }
+    },
+    computed: {
+        kiji() {
+            if (!process.client) console.log(this.prekiji.length);
+            return marked(this.prekiji);
+        },
     },
     components: {
         DefaultArticle

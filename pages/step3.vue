@@ -1,6 +1,6 @@
 <template>
     <div>
-        <DefaultArticle :content="{link:this.link, prekiji:this.prekiji}"/>
+        <DefaultArticle :content="{link:this.link, kiji:kiji}"/>
     </div>
 </template>
 
@@ -8,6 +8,7 @@
 <script>
 
 const DefaultArticle = () => import('~/components/default-article.vue');
+import marked from 'marked';
 
 export default{
     data: function() {
@@ -52,6 +53,12 @@ __「リモートリポジトリ」__と__「ローカルリポジトリ」__が
 ツイッターでいう「いいね」のような機能がある。是非、スター数獲得に向けて精進してほしい。
 `
         }
+    },
+    computed: {
+        kiji() {
+            if (!process.client) console.log(this.prekiji.length);
+            return marked(this.prekiji);
+        },
     },
     components: {
         DefaultArticle

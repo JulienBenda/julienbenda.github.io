@@ -26,7 +26,6 @@ export default {
     async mounted(){
         if (!process.client) console.log('default mounted');
         // highlight.initHighlighting();
-        highlight.initHighlightingOnLoad();
         // await this.sleep(30000);
         // window.location.href=window.location.href;
     },
@@ -189,7 +188,7 @@ main h3, main p, main li{
     top: 100vh;
     background: white;
     /* height: 100vh; */
-    width: 100vw;
+    width: 100%;
     text-align: center;
     padding: 5vh 50px 150px 50px;
 }
@@ -316,7 +315,7 @@ main h3, main p, main li{
 .nyoibo {
     border-bottom: solid 2px black;
     margin: auto;
-    -webkit-animation: nyoibo 1.5s forwards;
+    animation: nyoibo 1.5s forwards;
 }
 
 @keyframes nyoibo {

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <DefaultArticle :content="{link:this.link, prekiji:this.prekiji}"/>
+        <DefaultArticle :content="{link:this.link, kiji:kiji}"/>
     </div>
 </template>
 
@@ -8,6 +8,7 @@
 <script>
 
 const DefaultArticle = () => import('~/components/default-article.vue');
+import marked from 'marked';
 
 export default{
     data: function() {
@@ -23,16 +24,16 @@ export default{
 ## 鍵の作成
 
 1. sshのディレクトリに移動。
-\`\`\`sh
+\`\`\`bash
 $ cd ~/.ssh
 \`\`\`
 
 2. 鍵の生成。
-\`\`\`sh
+\`\`\`bash
 $ ssh-keygen -t rsa
 \`\`\`
 三回ほど質問されるがrequiredではないので、Enter三回連打で自動決定してもらう。
-\`\`\`sh
+\`\`\`bash
 $ ssh-keygen -t rsa
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/(username)/.ssh/id_rsa):
@@ -56,7 +57,7 @@ Enter same passphrase again:
 ## 諸々の設定
 
 1. 「~/.ssh/config」に以下の内容を追記。順序は関係なし。
-\`\`\`sh
+\`\`\`bash
 Host github
  Hostname github.com
  IdentityFile ~/.ssh/id_rsa
@@ -65,7 +66,7 @@ Host github
 \`\`\`
 
 2. 「~/.gitconfig」の内容に修正を加えてみる。
-\`\`\`sh
+\`\`\`bash
 [user]
  name = hoge
  email = huga
@@ -89,7 +90,7 @@ Host github
 (当然のことであるが、誰が誰だかわからなくなるから)。
 
 4. 一応SSH接続可能か調べる。
-\`\`\`sh
+\`\`\`bash
 $ ssh -T git@github.com
 \`\`\`
 「Hi (account名)! You've successfully authenticated, but GitHub does not provide shell access.」
@@ -101,6 +102,12 @@ $ ssh -T git@github.com
 こういった対応は効率化の信念のもと行われて然るべきである。
 `
         }
+    },
+    computed: {
+        kiji() {
+            if (!process.client) console.log(this.prekiji.length);
+            return marked(this.prekiji);
+        },
     },
     components: {
         DefaultArticle

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <DefaultArticle :content="{link:this.link, prekiji:this.prekiji}"/>
+        <DefaultArticle :content="{link:this.link, kiji:kiji}"/>
     </div>
 </template>
 
@@ -8,6 +8,7 @@
 <script>
 
 const DefaultArticle = () => import('~/components/default-article.vue');
+import marked from 'marked';
 
 export default{
     data: function() {
@@ -35,7 +36,7 @@ User pages must be built from the master branch.
 　masterに最終的に生成される静的ファイルを置きたい。
 なので、コードを書くブランチは別に作成する。
 
-\`\`\`sh
+\`\`\`bash
 $ git checkout -b pre
 \`\`\`
 
@@ -44,7 +45,7 @@ $ git checkout -b pre
 ## 必要なパッケージを追加
 
 　[公式ドキュメント](https://ja.nuxtjs.org/faq/github-pages/)に則って、必要なパッケージ__(cross-env, push-dir)__のインストール。
-\`\`\`sh
+\`\`\`bash
 npm install cross-env push-dir --save-dev
 \`\`\`
 
@@ -53,7 +54,7 @@ npm install cross-env push-dir --save-dev
 ## package.jsonにスクリプトを追加
 
 　公式ドキュメントと違って、masterブランチにdeployするので、少々書き換える必要がある。
-\`\`\`json
+\`\`\`javascripton
 ...
   "scripts": {
     "dev": "nuxt",
@@ -71,7 +72,7 @@ __"clear-hard-source-cache"__は基本機能に__HardSourceWebpackPlugin__があ
 あるタイミングでキャッシュを削除するためのコマンドがこれである。
 以下に述べるが、
 
-\`\`\`js
+\`\`\`javascript
 ...
 build: {
     hardSource: true,
@@ -82,7 +83,7 @@ build: {
 
 ## nuxt.config.jsを修正
 
-\`\`\`js
+\`\`\`javascript
 export default {
     mode: 'universal',
     /*
@@ -205,6 +206,12 @@ export default {
 `
 
         }
+    },
+    computed: {
+        kiji() {
+            if (!process.client) console.log(this.prekiji.length);
+            return marked(this.prekiji);
+        },
     },
     components: {
         DefaultArticle

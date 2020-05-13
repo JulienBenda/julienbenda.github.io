@@ -1,6 +1,6 @@
 <template>
     <div>
-        <DefaultArticle :content="{link:this.link, prekiji:this.prekiji}"/>
+        <DefaultArticle :content="{link:this.link, kiji:kiji}"/>
     </div>
 </template>
 
@@ -8,6 +8,7 @@
 <script>
 
 const DefaultArticle = () => import('~/components/default-article.vue');
+import marked from 'marked';
 
 export default{
     data: function() {
@@ -27,7 +28,7 @@ export default{
 
 　上のことを踏まえて公開しようと思ったとする。
 私はもう面倒くさかったので、以下のShellスクリプトを書いた
-\`\`\`sh　
+\`\`\`bash　
 git add --all && git commit -m jidou && git push && npm run generate && npm run deploy
 \`\`\`
 
@@ -44,6 +45,12 @@ __「npm run generate」__でdist直下に静的ファイルを作成。
 実際にコードを書いているわけだから、あんな絵日記みたいなものとは達成感が違う筈であろうからである。
 `
         }
+    },
+    computed: {
+        kiji() {
+            if (!process.client) console.log(this.prekiji.length);
+            return marked(this.prekiji);
+        },
     },
     components: {
         DefaultArticle

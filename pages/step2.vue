@@ -1,6 +1,6 @@
 <template>
     <div>
-        <DefaultArticle :content="{link:this.link, prekiji:this.prekiji}"/>
+        <DefaultArticle :content="{link:this.link, kiji:kiji}"/>
     </div>
 </template>
 
@@ -8,6 +8,7 @@
 <script>
 
 const DefaultArticle = () => import('~/components/default-article.vue');
+import marked from 'marked';
 
 export default{
     data: function() {
@@ -27,13 +28,13 @@ Linuxカーネルのような巨大プロジェクトにも対応できるよう
 
 
 1. コマンドラインからインストールする
-\`\`\`sh
+\`\`\`bash
 $ sudo apt install git
 \`\`\`
 しかしながら、この時世であるから、ほとんど確実に基本的に標準インストールされていると思う。。
 
 2. インストールされたか確認 
-\`\`\`sh
+\`\`\`bash
 $ git --version
 git version 2.20.1
 \`\`\`
@@ -41,7 +42,7 @@ git version 2.20.1
 
 ## Gitコマンドの種類
 　コマンドラインに「git help」と入力して実行してみる。
-\`\`\`sh
+\`\`\`bash
 $ git help -a
 See 'git help <command>' to read about a specific subcommand
 
@@ -210,7 +211,7 @@ Low-level Commands / Internal Helpers
 　WEB上にあるリポジトリをディレクトリにクローンする。これでローカルにもリポジトリが作成されたことになる。
 
 EX:
-\`\`\`sh
+\`\`\`bash
 $ git clone https://github.com/nuxt/nuxt.js.git
 \`\`\`
 
@@ -223,7 +224,7 @@ $ git clone https://github.com/nuxt/nuxt.js.git
 　変更したファイルをインデックスに追加する。
 
 EX:
-\`\`\`sh
+\`\`\`bash
 $ git add hogehuga.txt
 \`\`\`
 
@@ -236,7 +237,7 @@ $ git add hogehuga.txt
 　リポジトリへの変更を記録する。条件として変更ファイルがインデックスに追加されていること。
 
 EX:
-\`\`\`sh
+\`\`\`bash
 $ git commit -m "ほげふがを追加した"
 \`\`\`
 
@@ -249,7 +250,7 @@ $ git commit -m "ほげふがを追加した"
 　関連するオブジェクトとともにリモート参照を更新する。
 
 EX:
-\`\`\`sh
+\`\`\`bash
 $ git push
 \`\`\`
 
@@ -262,7 +263,7 @@ $ git push
 　ブランチを一覧表示、作成、または削除する。最初のうちはブランチ作成を主に使うと思う。
 
 EX:
-\`\`\`sh
+\`\`\`bash
 $ git branch test
 \`\`\`
 
@@ -285,7 +286,7 @@ $ git branch test
 　ブランチの切り替えまたは作業ツリーファイルの復元。主にブランチの切り替えに用いる。
 
 EX:
-\`\`\`sh
+\`\`\`bash
 $ git checkout -b test
 \`\`\`
 
@@ -298,7 +299,7 @@ $ git checkout -b test
 　別のリポジトリまたはローカルブランチからフェッチして統合する。
 
 EX:
-\`\`\`sh
+\`\`\`bash
 $ git pull origin master
 \`\`\`
 
@@ -330,6 +331,12 @@ GitHubではGUIで行うことができるので、主にこちらを使うべ�
 　あなたはもうエンジニアだ。なぜなら殆どの自称エンジニアがGitを知らないからである。
 `
         }
+    },
+    computed: {
+        kiji() {
+            if (!process.client) console.log(this.prekiji.length);
+            return marked(this.prekiji);
+        },
     },
     components: {
         DefaultArticle

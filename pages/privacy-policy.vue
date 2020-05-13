@@ -2,9 +2,9 @@
     <div>
         <main style="padding:5vw;">
             <h2 style="text-align:center;border-color:rgba(0,0,0,0)">
-                <p style="font-size: 50%; text-align: left;" @click="$router.push('/')">
+                <nuxt-link style="font-size: 50%; text-align: left; display: block;margin-bottom: 5vh;" to="/">
                     &lt; 記事一覧へ
-                </p>
+                </nuxt-link>
                 <b style="border-bottom: dotted 3px crimson;">
                     {{title}}
                 </b>

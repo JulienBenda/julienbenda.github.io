@@ -1,6 +1,6 @@
 <template>
     <div>
-        <DefaultArticle :content="{link:this.link, prekiji:this.prekiji}"/>
+        <DefaultArticle :content="{link:this.link, kiji:kiji}"/>
     </div>
 </template>
 
@@ -8,6 +8,7 @@
 <script>
 
 const DefaultArticle = () => import('~/components/default-article.vue');
+import marked from 'marked';
 
 export default{
     data: function() {
@@ -80,7 +81,7 @@ SSRとSPAのいいとこ取りとも言われる。
 ## プロジェクトを始める
 
 1. npxがインストールされていることを確認した後、__&lt;username&gt;.github.io のリポジトリをクローンしたディレクトリ__で、以下のように入力して実行。
-\`\`\`sh
+\`\`\`bash
 $ npx create-nuxt-app <username>.github.io
 \`\`\`
 
@@ -92,6 +93,12 @@ Nuxtのモードは__Universal__を選択する。
 　NuxtやVueは今非常にホットで、今後もっと伸びていくと思っているし、是非布教したい。
 `
         }
+    },
+    computed: {
+        kiji() {
+            if (!process.client) console.log(this.prekiji.length);
+            return marked(this.prekiji);
+        },
     },
     components: {
         DefaultArticle
