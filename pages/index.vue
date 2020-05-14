@@ -36,7 +36,7 @@
 
         <!-- TODO 鬱陶しい -->
         <!-- <ScrlArrow :look="look" :dom_ids="dom_ids" /> -->
-        <footer style="position: absolute; bottom: 10%;width: 100vw;margin-bottom:5vh; text-align: center;">© CYBER LAB 2020</footer> 
+        <footer style="position: absolute; bottom: 10%;width: 100vw;margin-bottom:5vh; text-align: center;">{{footer_info}}</footer> 
     </div>
 </template>
 
@@ -56,6 +56,7 @@ const fileListsValues = Object.values(fileLists),
 export default {
     data: function() {
         return {
+            footer_info: process.env.FOOTER_COPYRIGHT,
             look: 0, //いる？
             dom_ids: [/*'#introduction',*/ '#blogs', '#top'],
             fileListsValues: fileListsValues,

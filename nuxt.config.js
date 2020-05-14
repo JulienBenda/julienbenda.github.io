@@ -1,3 +1,6 @@
+require('dotenv').config();
+const {BASE_URL, FOOTER_COPYRIGHT} = process.env;
+
 const domain = "https://julienbenda.github.io".match(/^https?:\/{2,}(.*?)(?:\/|\?|#|$)/)[1]
 
 export default {
@@ -16,12 +19,12 @@ export default {
      ** Headers of the page
      */
     env: {
-        baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+        baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+        FOOTER_COPYRIGHT: FOOTER_COPYRIGHT
     },
     head: {
         title: process.env.npm_package_name || '',
         titleTemplate: 'CYBER LAB',
-        // titleTemplate: '%s - CYBER LAB',
         htmlAttrs: {
             prefix: 'og: http://ogp.me/ns#',
             lang: 'ja'

@@ -29,7 +29,7 @@
                 次の記事　{{linkTitle(this.afterLink(this.url))}}
             </nuxt-link>
         </center>
-        <footer style="margin-bottom: 2vh; text-align: center;">© CYBER LAB 2020</footer>
+        <footer style="margin-bottom: 2vh; text-align: center;">{{footer_info}}</footer>
         <InformationForm :displayStyle="'flex'"/>
     </div>
 </template>
@@ -44,9 +44,10 @@ import highlight from 'highlight.js';
 export default{
     data: function() {
         return {
+            footer_info: process.env.FOOTER_COPYRIGHT,
             title: this.linkTitle(this.$props.content.link),
             time: fileLists[this.$props.content.link].time,
-            url: "https://julienbenda.github.io/" + this.$props.content.link,
+            url: process.env.BASE_URL + "/" + this.$props.content.link,
             samn: fileLists[this.$props.content.link].samn,
             // prekiji: this.$props.content.prekiji,
             // kiji: this.$props.content.kiji,
