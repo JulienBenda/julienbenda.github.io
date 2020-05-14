@@ -120,9 +120,10 @@ main h2, main h1{
 
 main h2 {
     text-align: left;
-    padding: 3px 0 3px 6px;
-    border-left: solid 4px crimson;
-    border-bottom: solid 2px black;
+    font-size: 130%;
+    padding: 0.5vh 0 0.5vh 1vh;
+    border-left: solid 0.5vh crimson;
+    border-bottom: solid 0.3vh black;
 }
 
 main h3, main p, main li{

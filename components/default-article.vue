@@ -8,7 +8,7 @@
                 <b style="border-bottom: solid 0.5vh black; font-size: 80%;">
                     {{title}}
                 </b>
-                <p style="font-size: 50%; text-align: right; font-size: 40%;">
+                <p style="text-align: right; font-size: 40%;">
                     {{time}}
                 </p>
                 <picture>

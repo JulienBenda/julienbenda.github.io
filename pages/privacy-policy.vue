@@ -1,27 +1,28 @@
 <template>
     <div>
         <main style="padding:5vw;">
-            <h2 style="text-align:center;border-color:rgba(0,0,0,0)">
-                <nuxt-link style="font-size: 50%; text-align: left; display: block;margin-bottom: 5vh;" to="/">
+            <h1 style="text-align:center;border-color:rgba(0,0,0,0)">
+                <nuxt-link style="font-size: 40%; text-align: left; display: block;margin-bottom: 5vh;" to="/">
                     &lt; 記事一覧へ
                 </nuxt-link>
-                <b style="border-bottom: dotted 3px crimson;">
+                <b style="border-bottom: solid 0.5vh black; font-size: 80%;">
                     {{title}}
                 </b>
-                <p style="font-size: 50%; text-align: right;">
+                <p style="text-align: right; font-size: 40%;">
                     {{time}} 制定
                 </p>
-                <!-- <img alt="" :src="'/'+this.samn"></img> -->
-            </h2>
-                <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
+            </h1>
+            <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
         </main>
-        <center style="margin-bottom: 5vh"><a 
+        <footer style="margin-bottom: 2vh; text-align: center;">© CYBER LAB 2020</footer>
+        <center style="margin-bottom: 7vh"><a 
             href="https://forms.gle/yMfcxPtxpsfHzJZ58"
             rel="noopener noreferrer"    
             target="_blank"
+            style="font-size: 2vh;"
             >
-            お問い合わせ 
-            </a></center>
+            {{contact}}
+        </a></center>
     </div>
 </template>
 
@@ -33,10 +34,10 @@ import marked from 'marked';
 export default{
     data: function() {
         return {
-            title: "個人情報保護方針",
+            contact: "Contact Us",
+            title: "プライバシーポリシー",
             time: "2020年5月3日",
-            url: "https:julienbenda.github.io/step1",
-            samn: 'GitHub.png',
+            url: "https:julienbenda.github.io/privacy-policy",
             prekiji:
 `
 ## 当サイトに掲載されている広告について

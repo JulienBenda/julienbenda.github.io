@@ -108,9 +108,12 @@ export default{
     user-select: none;
 }
 
-.pagination-block, .pagination-block-highlight{
+.pagination-block{
     border: solid 1px gray;
     box-shadow: 0.025vh 0.025vh 0.125vh 0.025vh darkslategray;
+}
+
+.pagination-block, .pagination-block-highlight{
     font-size: 50%;
 }
 
@@ -127,6 +130,7 @@ export default{
 .pagination-block-highlight{
     opacity: 0.7;
     background: midnightblue;
+    border: solid 1px midnightblue;
     box-shadow: 0.025vh 0.025vh 0.125vh 0.025vh mediumblue, -0.025vh -0.025vh 0.125vh 0.025vh mediumblue;
     color: white;
 }
