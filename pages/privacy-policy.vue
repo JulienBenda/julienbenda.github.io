@@ -12,7 +12,7 @@
                     {{time}} 制定
                 </p>
             </h1>
-            <div style="margin-top: 5vh; padding: 5vw; border: solid 5px black;" v-html="kiji"></div>
+            <div style="margin-top: 5vh; padding: 5vw; border; box-shadow: 0.1vh 0.1vh 0.5vh 0.1vh black;" v-html="kiji"></div>
         </main>
         <footer style="margin-bottom: 2vh; text-align: center;">© CYBER LAB 2020</footer>
         <center style="margin-bottom: 7vh"><a 
