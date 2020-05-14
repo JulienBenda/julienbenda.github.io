@@ -1,13 +1,13 @@
 <template>
-    <div style="display:flex;justify-content: center;">
+    <div class="pagination-container">
         <div class="pagination-block" @click="pageBack">&lt;</div>
-        <div v-if="lengthPlimit<6" style="display:flex;padding:0;margin:0;">
+        <div v-if="lengthPlimit<6" class="pagination-block-numbers">
             <div v-for="n of lengthPlimit">
                 <div v-if="n==index" class="pagination-block-highlight" @click="pageOn(n)">{{n}}</div>
                 <div v-else class="pagination-block" @click="pageOn(n)">{{n}}</div>
             </div>
         </div>
-        <div v-else style="display:flex;padding:0;margin:0;">
+        <div v-else class="pagination-block-numbers">
             <div v-for="n of indexSlot">
                 <div v-if="n==index" class="pagination-block-highlight" @click="pageOn(n)">{{n}}</div>
                 <div v-else-if="n" class="pagination-block" @click="pageOn(n)">{{n}}</div>
@@ -83,22 +83,39 @@ export default{
 </script>
 
 <style>
-.pagination-block{
-    font-size: 50%;
+.pagination-container{
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-block-numbers{
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-block, .pagination-block-highlight, .point{
     padding: auto;
     margin: 2.5px;
     line-height: 3vh;
     width: 3vh;
     height: 3vh;
-    color: darkslategray;
-    box-shadow: 0.025vh 0.025vh 0.125vh 0.025vh darkslategray;
     text-align: center;
-    border: solid 1px gray;
     border-radius: 10%;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.pagination-block, .pagination-block-highlight{
+    border: solid 1px gray;
+    box-shadow: 0.025vh 0.025vh 0.125vh 0.025vh darkslategray;
+    font-size: 50%;
+}
+
+.pagination-block, .point{
+    color: darkslategray;
 }
 
 .pagination-block:hover{
@@ -108,41 +125,15 @@ export default{
 }
 
 .pagination-block-highlight{
-    font-size: 50%;
-    padding: auto;
-    margin: 2.5px;
-    line-height: 3vh;
-    width: 3vh;
-    height: 3vh;
-    box-shadow: 0.025vh 0.025vh 0.125vh 0.025vh darkslategray;
-    text-align: center;
-    border: solid 1px gray;
-    border-radius: 10%;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    opacity: 0.5;
+    opacity: 0.7;
     background: midnightblue;
+    box-shadow: 0.025vh 0.025vh 0.125vh 0.025vh mediumblue, -0.025vh -0.025vh 0.125vh 0.025vh mediumblue;
     color: white;
 }
 
 .point{
-    /* font-size: 50%; */
-    padding: auto;
-    margin: 2.5px;
-    line-height: 3vh;
-    width: 3vh;
-    height: 3vh;
-    color: darkslategray;
-    opacity: 0.8;
-    box-shadow: 0.025vh 0.025vh 0.125vh 0.025vh white;
-    text-align: center;
     border: solid 1px white;
-    border-radius: 10%;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    box-shadow: 0.025vh 0.025vh 0.125vh 0.025vh white;
+    opacity: 0.8;
 }
 </style>

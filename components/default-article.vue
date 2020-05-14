@@ -1,26 +1,26 @@
 <template>
     <div>
         <main style="padding:5vw;">
-            <h2 style="text-align:center;border-color:rgba(0,0,0,0)">
-                <nuxt-link style="font-size: 50%; text-align: left; display: block;margin-bottom: 5vh;" to="/">
+            <h1 style="text-align:center;border-color:rgba(0,0,0,0)">
+                <nuxt-link style="font-size: 40%; text-align: left; display: block;margin-bottom: 5vh;" to="/">
                     &lt; 記事一覧へ
                 </nuxt-link>
-                <b style="border-bottom: dotted 3px crimson;">
-                    {{this.title}}
+                <b style="border-bottom: solid 0.5vh black; font-size: 80%;">
+                    {{title}}
                 </b>
-                <p style="font-size: 50%; text-align: right;">
-                    {{this.time}}
+                <p style="font-size: 50%; text-align: right; font-size: 40%;">
+                    {{time}}
                 </p>
                 <picture>
                     <source type="image/webp" :srcset="'/'+(this.samn).split('.')[0]+'.webp'">
                     <img alt="" :src="'/'+this.samn" style="width: 100%;max-width:50%; margin: auto"></img>
                 </picture>
-            </h2>
+            </h1>
             <div style="margin-top: 5vh; padding: 5vw; box-shadow: 0.1vh 0.1vh 0.5vh 0.1vh black;" v-html="this.$props.content.kiji"></div>
         </main>
         <center style="margin-bottom: 10vh;">
             <nuxt-link id="blink" v-if="this.beforeLink(this.url)" style="font-size: 80%; margin-right: 2vw" :to="'../'+this.beforeLink(this.url)">
-                前の記事　{{this.linkTitle(this.beforeLink(this.url))}}
+                前の記事　{{linkTitle(this.beforeLink(this.url))}}
             </nuxt-link>
             <nuxt-link style="font-size: 80%;" to="/">
                 記事一覧へ
@@ -30,30 +30,15 @@
             </nuxt-link>
         </center>
         <footer style="margin-bottom: 2vh; text-align: center;">© CYBER LAB 2020</footer>
-        <center style="margin-bottom: 7vh;">
-            <a 
-                href="https://forms.gle/yMfcxPtxpsfHzJZ58"
-                style="margin-right: 2vw; font-size: 70%;"
-                rel="noopener noreferrer"    
-                target="_blank"
-                >
-                お問い合わせ 
-            </a>
-            <a 
-                href="../privacy-policy"
-                style="font-size: 70%;"
-                rel="noopener noreferrer"
-                target="_blank"
-                >
-                個人情報保護方針
-            </a>
-        </center>
+        <InformationForm :displayStyle="'flex'"/>
     </div>
 </template>
 
 
 <script>
 import fileLists from '~/components/fileLists.json';
+const InformationForm = () => import('~/components/information-form.vue');
+
 import highlight from 'highlight.js';
 
 export default{
@@ -132,6 +117,9 @@ export default{
             document.getElementById("alink").style.margin = "2vh 0 0 0";
         }
     },
+    components: {
+        InformationForm,
+    }
 }
 
 </script>

@@ -54,7 +54,7 @@ npm install cross-env push-dir --save-dev
 ## package.jsonにスクリプトを追加
 
 　公式ドキュメントと違って、masterブランチにdeployするので、少々書き換える必要がある。
-\`\`\`javascripton
+\`\`\`json
 ...
   "scripts": {
     "dev": "nuxt",
